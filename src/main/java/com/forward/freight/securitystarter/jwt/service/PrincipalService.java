@@ -13,4 +13,9 @@ public class PrincipalService {
          var authentication = (UserAuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
          return authentication.getUserName();
     }
+
+    public String getCurrentUserEmail() {
+        var authentication = (UserAuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
+        return authentication.getEmail();
+    }
 }
