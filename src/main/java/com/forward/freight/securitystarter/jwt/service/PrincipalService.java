@@ -19,6 +19,11 @@ public class PrincipalService {
         return authentication.getEmail();
     }
 
+    public String getCurrentUserPhone() {
+        var authentication = (UserAuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
+        return authentication.getPhoneNumber();
+    }
+
     public String getCurrentToken() {
         var authentication = (UserAuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
         return (String) authentication.getCredentials();
