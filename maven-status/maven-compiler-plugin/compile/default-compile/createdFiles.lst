@@ -1,8 +1,12 @@
-com/forward/freight/securitystarter/jwt/config/JwtConfiguration.class
-com/forward/freight/securitystarter/jwt/SecurityConfig.class
+com/forward/freight/securitystarter/jwt/model/UserData.class
 com/forward/freight/securitystarter/jwt/filter/AwsCognitoJwtAuthenticationFilter.class
 com/forward/freight/securitystarter/jwt/PlatformSecurityAutoConfiguration.class
-com/forward/freight/securitystarter/jwt/service/PrincipalService.class
-com/forward/freight/securitystarter/jwt/filter/AwsCognitoIdTokenProvider.class
+com/forward/freight/securitystarter/jwt/service/UserService.class
 com/forward/freight/securitystarter/jwt/UserAuthenticationToken.class
 com/forward/freight/securitystarter/jwt/UserAuthenticationToken$UserAuthenticationTokenBuilder.class
+com/forward/freight/securitystarter/jwt/controller/UserController.class
+com/forward/freight/securitystarter/jwt/config/JwtConfiguration.class
+com/forward/freight/securitystarter/jwt/SecurityConfig.class
+com/forward/freight/securitystarter/jwt/service/PrincipalService.class
+com/forward/freight/securitystarter/jwt/filter/AwsCognitoIdTokenProvider.class
+com/forward/freight/securitystarter/jwt/model/UserData$UserDataBuilder.class
