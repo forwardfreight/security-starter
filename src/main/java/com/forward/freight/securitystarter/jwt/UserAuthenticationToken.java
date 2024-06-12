@@ -6,11 +6,14 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.GrantedAuthority;
 
 import java.util.Collection;
+import java.util.List;
 
 @Getter
 public class UserAuthenticationToken extends UsernamePasswordAuthenticationToken {
 
-    private final String userName;
+    private final String username;
+    private final String name;
+    private final String familyName;
     private final String phoneNumber;
     private final String email;
 
@@ -18,9 +21,11 @@ public class UserAuthenticationToken extends UsernamePasswordAuthenticationToken
     @Builder
     public UserAuthenticationToken(Object principal, Object credentials,
                                    Collection<? extends GrantedAuthority> authorities,
-                                   String userName, String email, String phoneNumber) {
+                                   String username, String name, String familyName, String email, String phoneNumber) {
         super(principal, credentials, authorities);
-        this.userName = userName;
+        this.username = username;
+        this.name = name;
+        this.familyName = familyName;
         this.email = email;
         this.phoneNumber = phoneNumber;
     }
