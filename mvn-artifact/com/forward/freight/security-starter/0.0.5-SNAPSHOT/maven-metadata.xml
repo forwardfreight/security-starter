@@ -3,27 +3,27 @@
   <groupId>com.forward.freight</groupId>
   <artifactId>security-starter</artifactId>
   <versioning>
-    <lastUpdated>20240731163703</lastUpdated>
+    <lastUpdated>20240731163930</lastUpdated>
     <snapshot>
-      <timestamp>20240731.163703</timestamp>
-      <buildNumber>1</buildNumber>
+      <timestamp>20240731.163930</timestamp>
+      <buildNumber>2</buildNumber>
     </snapshot>
     <snapshotVersions>
       <snapshotVersion>
         <extension>pom</extension>
-        <value>0.0.5-20240731.163703-1</value>
-        <updated>20240731163703</updated>
+        <value>0.0.5-20240731.163930-2</value>
+        <updated>20240731163930</updated>
       </snapshotVersion>
       <snapshotVersion>
         <extension>jar</extension>
-        <value>0.0.5-20240731.163703-1</value>
-        <updated>20240731163703</updated>
+        <value>0.0.5-20240731.163930-2</value>
+        <updated>20240731163930</updated>
       </snapshotVersion>
       <snapshotVersion>
         <classifier>sources</classifier>
         <extension>jar</extension>
-        <value>0.0.5-20240731.163703-1</value>
-        <updated>20240731163703</updated>
+        <value>0.0.5-20240731.163930-2</value>
+        <updated>20240731163930</updated>
       </snapshotVersion>
     </snapshotVersions>
   </versioning>
