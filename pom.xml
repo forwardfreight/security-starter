@@ -53,61 +53,10 @@
 	<distributionManagement>
 		<repository>
 			<id>github</id>
-			<name>forwardfreight</name>
+			<name>GitHub OWNER Apache Maven Packages</name>
 			<url>https://maven.pkg.github.com/forwardfreight/security-starter</url>
 		</repository>
 	</distributionManagement>
 	<build>
-		<plugins>
-			<plugin>
-				<artifactId>maven-deploy-plugin</artifactId>
-				<version>3.1.1</version>
-				<configuration>
-					<altDeploymentRepository>
-						internal.repo::default::file://${project.build.directory}/mvn-artifact
-					</altDeploymentRepository>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
-				<version>3.1.0</version>
-				<executions>
-					<execution>
-						<id>attach-sources</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>com.github.github</groupId>
-				<artifactId>site-maven-plugin</artifactId>
-				<version>0.12</version>
-				<configuration>
-					<userName>forwardfreight</userName>
-					<message>Maven artifacts for ${project.version}</message>
-					<noJekyll>true</noJekyll>
-					<outputDirectory>${project.build.directory}</outputDirectory>
-					<branch>refs/heads/maven</branch>
-					<includes>
-						<include>**/*</include>
-					</includes>
-					<merge>true</merge>
-					<repositoryName>security-starter</repositoryName>
-					<repositoryOwner>forwardfreight</repositoryOwner>
-					<server>github</server>
-				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>site</goal>
-						</goals>
-						<phase>deploy</phase>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
 	</build>
 </project>
