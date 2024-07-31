@@ -52,9 +52,9 @@
 
 	<distributionManagement>
 		<repository>
-			<id>internal.repo</id>
-			<name>Temporary Staging Repository</name>
-			<url>file://${project.build.directory}/mvn-artifact</url>
+			<id>github</id>
+			<name>forwardfreight</name>
+			<url>https://maven.pkg.github.com/forwardfreight/security-starter</url>
 		</repository>
 	</distributionManagement>
 	<build>
