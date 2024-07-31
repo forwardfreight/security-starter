@@ -3,10 +3,9 @@
   <groupId>com.forward.freight</groupId>
   <artifactId>security-starter</artifactId>
   <versioning>
-    <release>0.0.5</release>
     <versions>
-      <version>0.0.5</version>
+      <version>0.0.5-SNAPSHOT</version>
     </versions>
-    <lastUpdated>20240731162834</lastUpdated>
+    <lastUpdated>20240731163231</lastUpdated>
   </versioning>
 </metadata>
