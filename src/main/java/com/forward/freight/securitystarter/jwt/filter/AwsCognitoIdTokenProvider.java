@@ -16,7 +16,10 @@ import org.springframework.stereotype.Component;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.Spliterator;
+import java.util.Spliterators;
 import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 
 @Slf4j
@@ -31,6 +34,10 @@ public class AwsCognitoIdTokenProvider {
 
     public Authentication getAuthentication(HttpServletRequest request) throws Exception {
         var idToken = request.getHeader(jwtConfiguration.getHttpHeader());
+
+       log.info(StreamSupport.stream(Spliterators.spliteratorUnknownSize(
+            request.getHeaderNames().asIterator(), Spliterator.ORDERED), false)
+            .collect(Collectors.joining()));
         if(idToken != null) {
             var claims = configurableJWTProcessor.process(idToken, null);
             var username = (String) claims.getClaim("cognito:username");
@@ -47,7 +54,7 @@ public class AwsCognitoIdTokenProvider {
                 .authorities(getAuthorities(claims))
                 .build();
         }
-        log.trace("No idToken found in HTTP Header");
+        log.info("No idToken found in HTTP Header");
         return null;
     }
 

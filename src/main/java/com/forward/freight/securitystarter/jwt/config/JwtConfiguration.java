@@ -31,7 +31,7 @@ public class JwtConfiguration {
     private String groupsField = "cognito:groups";
     private int connectionTimeout = 2000;
     private int readTimeout = 2000;
-    private String httpHeader = "x-amzn-oidc-accestoken";
+    private String httpHeader = "x-amzn-oidc-accesstoken";
     private String jwkUrl;
 
 
