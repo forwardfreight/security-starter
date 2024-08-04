@@ -16,6 +16,7 @@ import org.springframework.context.annotation.Configuration;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import static com.nimbusds.jose.JWSAlgorithm.ES256;
 import static com.nimbusds.jose.JWSAlgorithm.RS256;
 
 @Data
@@ -31,7 +32,7 @@ public class JwtConfiguration {
     private String groupsField = "cognito:groups";
     private int connectionTimeout = 2000;
     private int readTimeout = 2000;
-    private String httpHeader = "x-amzn-oidc-accesstoken";
+    private String httpHeader = "x-amzn-oidc-data";
     private String jwkUrl;
 
 
@@ -41,7 +42,7 @@ public class JwtConfiguration {
         URL jwkSetURL = new URL(getJwkUrl());
         JWKSource keySource = new RemoteJWKSet(jwkSetURL, resourceRetriever);
         ConfigurableJWTProcessor jwtProcessor = new DefaultJWTProcessor();
-        JWSKeySelector keySelector = new JWSVerificationKeySelector(RS256, keySource);
+        JWSKeySelector keySelector = new JWSVerificationKeySelector(ES256, keySource);
         jwtProcessor.setJWSKeySelector(keySelector);
         return jwtProcessor;
     }
