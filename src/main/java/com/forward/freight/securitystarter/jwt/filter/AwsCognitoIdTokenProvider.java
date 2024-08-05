@@ -1,15 +1,11 @@
 package com.forward.freight.securitystarter.jwt.filter;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.forward.freight.securitystarter.jwt.UserAuthenticationToken;
-import com.forward.freight.securitystarter.jwt.config.JwtConfiguration;
 import com.nimbusds.jwt.JWTClaimsSet;
 import com.nimbusds.jwt.SignedJWT;
-import com.nimbusds.jwt.proc.ConfigurableJWTProcessor;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -30,16 +26,8 @@ import java.util.stream.StreamSupport;
 @Component
 public class AwsCognitoIdTokenProvider {
 
-    @Autowired
-    private JwtConfiguration jwtConfiguration;
-
-    @Autowired
-    private ConfigurableJWTProcessor configurableJWTProcessor;
-
     public Authentication getAuthentication(HttpServletRequest request) throws Exception {
-
-        var token = request.getHeader(jwtConfiguration.getHttpHeader());
-        var signedJwt = SignedJWT.parse(token);
+        var token = request.getHeader("x-amzn-oidc-data");
 
        List<String> headerNames = StreamSupport.stream(Spliterators.spliteratorUnknownSize(
             request.getHeaderNames().asIterator(), Spliterator.ORDERED), false)
@@ -49,13 +37,10 @@ public class AwsCognitoIdTokenProvider {
            log.info("HEADER " + name + " = " + request.getHeader(name));
        });
 
-
-        if(signedJwt != null) {
+        if(StringUtils.isNotBlank(token)) {
+            var signedJwt = SignedJWT.parse(token);
             var claims = signedJwt.getJWTClaimsSet();
 
-            log.info("x-amzn-oidc-data = ", request.getHeader("x-amzn-oidc-data"));
-            log.info("x-amzn-oidc-identity = ", request.getHeader("x-amzn-oidc-identity"));
-            log.info("CLAIMS = " + claims.getClaims().toString());
             var username = (String) claims.getClaim("username");
             var principal = new User(username, "", Collections.emptyList());
 
